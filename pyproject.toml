@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "web-home-work-13-django"
+version = "0.1.0"
+description = ""
+authors = ["Hubsit <vitaliy.kievskiy@hotmail.com>"]
+readme = "README.md"
+packages = [{include = "web_home_work_13_django"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+django = "^4.1.7"
+psycopg2 = "^2.9.5"
+django-environ = "^0.10.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

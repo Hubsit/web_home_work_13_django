@@ -1,0 +1,32 @@
+{% extends "app_quotes/base.html" %}
+{% load extract_tags %}
+
+{% block content %}
+<h1>Quotes to scrape</h1>
+{% for quote in quotes %}
+<div class="card">
+    <div class="card-body">
+        <p class="card-text">{{quote.quote}}</p>
+        <a href="{% url 'app_quotes:author' quote.author_id %}">{{quote.author}}</a>
+        <p class="card-text">Tags: {{quote.tags|tags}}</p>
+    </div>
+</div>
+{% endfor %}
+<nav>
+    <ul class="pagination">
+        {% if quotes.has_previous %}
+        <li class="page-item">
+            <a class="page-link" href="?page={{ quotes.previous_page_number }}">previous</a>
+        </li>
+        {% endif %}
+        <li class="page-item active">
+            <a class="page-link" href="?page={{ quotes.number }}">{{ quotes.number }}</a>
+        </li>
+        {% if quotes.has_next %}
+        <li class="page-item">
+            <a class="page-link" href="?page={{ quotes.next_page_number }}">next</a>
+        </li>
+        {% endif %}
+    </ul>
+</nav>
+{% endblock %}

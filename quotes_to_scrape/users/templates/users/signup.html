@@ -1,0 +1,58 @@
+{% extends "app_quotes/base.html" %}
+
+{% block content %}
+
+{% if form.errors %}
+<div class="alert alert-danger" role="alert">
+  {{ form.non_field_errors}}
+</div>
+{% endif %}
+
+<h1>SignUp</h1>
+<form method="post">
+    {% csrf_token %}
+    <div class="form-row">
+        <div class="mb-3">
+            <label class="form-label">Username</label>
+            {{form.username}}
+        </div>
+        <span>{{form.errors.username}}</span>
+    </div>
+    <div class="form-row">
+        <div class="mb-3">
+            <label class="form-label">First Name</label>
+            {{form.first_name}}
+        </div>
+        <span>{{form.errors.first_name}}</span>
+    </div>
+    <div class="form-row">
+        <div class="mb-3">
+            <label class="form-label">Last Name</label>
+            {{form.last_name}}
+        </div>
+        <span>{{form.errors.last_name}}</span>
+    </div>
+    <div class="form-row">
+        <div class="mb-3">
+            <label class="form-label">Email</label>
+            {{form.email}}
+        </div>
+        <span>{{form.errors.email}}</span>
+    </div>
+    <div class="form-row">
+        <div class="mb-3">
+            <label class="form-label">Password</label>
+            {{form.password1}}
+        </div>
+        <span>{{form.errors.password1}}</span>
+    </div>
+    <div class="form-row">
+        <div class="mb-3">
+            <label class="form-label">Confirm password</label>
+            {{form.password2}}
+        </div>
+        <span>{{form.errors.password2}}</span>
+    </div>
+    <button type="submit" class="btn btn-primary">Sing Up</button>
+</form>
+{% endblock %}
